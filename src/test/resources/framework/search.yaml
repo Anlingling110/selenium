@@ -1,0 +1,11 @@
+data:
+- junit4
+- junit5
+steps:
+  - chrome: {}
+  - implicitly_wait: 5
+  - get: https://ceshiren.com
+  - find: { id: search-button}
+  - click: {}
+  - find: { id: search-term }
+  - send_keys: {data}
