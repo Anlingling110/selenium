@@ -1,0 +1,8 @@
+data:
+- junit4
+- junit5
+steps:
+  - init: [mainPage, com.po_framework.MainPage]
+  - mainPage.search: {}
+#  - SearchPage: {}
+#  -SearchPage.search: ${data}

@@ -9,7 +9,6 @@ package com.framework;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -85,14 +84,10 @@ public class ParamsTest {
         System.out.println(testDemo);
         testDemo.run();
     }
-    static Stream<TestDemo> MethodSourceSearch3() throws IOException {
+    static List<TestDemo> MethodSourceSearch3() throws IOException {
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         TestDemo testDemo = mapper.readValue(ParamsTest.class.getResourceAsStream("/framework/search.yaml"),
                 TestDemo.class);
-        return Stream.of(testDemo);
+        return testDemo.testdemo_generate();//调用方法，读取List
         }
-    @AfterEach
-    void quit(){
-        driver.quit();
-    }
 }
